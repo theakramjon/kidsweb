@@ -51,14 +51,61 @@
 		</div>
 
 		<!-- Hero -->
-		<main class="hero">
+		<!--<main class="hero">
 			<h1 class="title rise d1" style="">
-			 <span style="color: #ffc016">Bog'changizni</span> — yangi<br><span class=""> bosqichga olib chiqing</span>
+			 <span  style="color: black; border-bottom: 12px solid #ffc016; ">Bog'changizni</span> — yangi<br><span class=""> bosqichga olib chiqing</span>
 			</h1>
 			<p class="lede rise d2">
 				Bog'changiz uchun tayyor transport xizmati, ota-onalar uchun esa kundalik qulaylik.
 			</p>
-		</main>
+		</main>-->
+		<main class="hero">
+            <h1 class="title rise d1">
+                <span class="highlight">Bog'changizni</span> — yangi<br> bosqichga olib chiqing
+            </h1>
+      		
+            <p class="lede rise d2">
+                Bog'changiz uchun tayyor transport xizmati, ota-onalar uchun esa kundalik qulaylik.
+            </p>
+        </main>
+    <style>
+    .highlight {
+        position: relative;
+        color: #000;
+        isolation: isolate;
+        display: inline-block;
+    }
+    
+    /* Main yellow stroke */
+    .highlight::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        right: -5px;
+        bottom: 3px;
+        height: 11px;
+        background: #ffc016;
+        border-radius: 2px;
+        z-index: -1;
+    
+        transform: rotate(-0.7deg);
+    }
+    
+    /* Small secondary stroke — makes it feel less "perfect CSS" */
+    .highlight::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        right: -3px;
+        bottom: 0;
+        height: 5px;
+        background: #ffc016;
+        border-radius: 50%;
+        z-index: -1;
+    
+        transform: rotate(0.3deg);
+    }
+    </style>
 	</div>
 
 	<!-- Yechim -->
@@ -92,74 +139,34 @@
 		</div>
 	</section>
 
-	<section class="highlights" id="highlights">
-		<div class="hl-head">
-			<h2 class="hl-title">Ota-onalar uchun.</h2>
-			<div class="hl-controls">
-				<button class="hl-btn" type="button" data-dir="-1" aria-label="Oldingi" aria-controls="hlTrack">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
-				</button>
-				<button class="hl-btn" type="button" data-dir="1" aria-label="Keyingi" aria-controls="hlTrack">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-				</button>
+	<!-- Ota-onalar uchun -->
+	<section class="solution solution--dark" id="ota-onalar">
+		<div class="sol-wrap">
+			<span class="sol-eyebrow reveal">03 — Qulaylik</span>
+			<h2 class="sol-title reveal">Ota-onalar uchun.</h2>
+
+			<div class="sol-grid">
+				<article class="sol-card reveal">
+					<span class="sol-num">01</span>
+					<h3>Har bitta bola uchun alohida e'tibor</h3>
+					<p>Bir mashinada cheklangan son. Har bola nomi bilan kutib olinadi va nomi bilan topshiriladi.</p>
+				</article>
+				<article class="sol-card reveal">
+					<span class="sol-num">02</span>
+					<h3>Vaqtni tejash</h3>
+					<p>Kuniga ikki marta yo'lga chiqish shart emas. Ertalabki shoshqaloqlik va kechki kutish tugaydi.</p>
+				</article>
+				<article class="sol-card reveal">
+					<span class="sol-num">03</span>
+					<h3>Ishonchli haydovchi</h3>
+					<p>Har kuni bir xil, tanish haydovchi. Uning ma'lumotlari va transporti ilovada ko'rinadi.</p>
+				</article>
+				<article class="sol-card reveal">
+					<span class="sol-num">04</span>
+					<h3>Har bir safar nazoratda</h3>
+					<p>Chiqdi, yo'lda, yetib bordi — har bosqichda xabar keladi, xaritada esa jonli harakat.</p>
+				</article>
 			</div>
-		</div>
-
-		<div class="hl-track" id="hlTrack" role="region" aria-label="Asosiy imkoniyatlar" tabindex="0">
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="34" y="26" width="132" height="102" rx="14"/>
-						<path d="M34 56h132M68 18v18M132 18v18"/>
-						<circle cx="68" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="100" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="132" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="68" cy="106" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="100" cy="106" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="132" cy="106" r="8.6" class="ping"/>
-					</svg>
-				</div>
-				<p class="card-text">Har bitta bola uchun alohida e'tibor.</p>
-			</article>
-			
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="34" y="26" width="132" height="102" rx="14"/>
-						<path d="M34 56h132M68 18v18M132 18v18"/>
-						<circle cx="68" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="100" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="132" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="68" cy="106" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="100" cy="106" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="132" cy="106" r="8.6" class="ping"/>
-					</svg>
-				</div>
-				<p class="card-text">Vaqtini tejash.</p>
-			</article>
-
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M100 16l44 17v33c0 30-19 51-44 60-25-9-44-30-44-60V33z"/>
-						<path d="M84 74l11 12 24-26"/>
-						<path class="dash" d="M18 132h164"/>
-					</svg>
-				</div>
-				<p class="card-text">Ishonchli haydovchi.</p>
-			</article>
-			
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M100 16l44 17v33c0 30-19 51-44 60-25-9-44-30-44-60V33z"/>
-						<path d="M84 74l11 12 24-26"/>
-						<path class="dash" d="M18 132h164"/>
-					</svg>
-				</div>
-				<p class="card-text">Har bir safar nazoratda.</p>
-			</article>
-
 		</div>
 	</section>
 

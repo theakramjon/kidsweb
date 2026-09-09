@@ -638,6 +638,8 @@ section{scroll-margin-top:clamp(84px,10vh,104px)}
 	--sol-blue:#1740d4;
 	--sol-ink:#141310;
 	--sol-body:#4b4740;
+	--sol-card-ink:#141310;
+	--sol-eyebrow:rgba(20,19,16,.7);
 	position:relative;z-index:2;
 	background:var(--sol-yellow);color:var(--sol-ink);
 	padding:clamp(60px,7vw,92px) 0 clamp(72px,8vw,104px);
@@ -659,7 +661,7 @@ section{scroll-margin-top:clamp(84px,10vh,104px)}
 .sol-eyebrow{
 	display:block;margin-bottom:clamp(18px,2.2vw,30px);
 	font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-	color:rgba(20,19,16,.7);
+	color:var(--sol-eyebrow);
 }
 .sol-title{
 	font-family:'Inter Tight',Inter,sans-serif;
@@ -678,6 +680,7 @@ section{scroll-margin-top:clamp(84px,10vh,104px)}
 	border-radius:clamp(22px,2.6vw,36px);
 	padding:clamp(28px,3.2vw,46px);
 	display:flex;flex-direction:column;
+	color:var(--sol-card-ink);
 }
 .sol-num{
 	font-family:'Inter Tight',Inter,sans-serif;
@@ -699,6 +702,13 @@ section{scroll-margin-top:clamp(84px,10vh,104px)}
 	font-size:clamp(1.1rem,1.35vw,1.22rem);
 	line-height:1.5;letter-spacing:-.006em;
 	color:var(--sol-body);
+}
+
+/* dark variant of the slide */
+.solution--dark{
+	--sol-yellow:#0b0b0c;
+	--sol-ink:#fff;
+	--sol-eyebrow:rgba(255,255,255,.5);
 }
 
 /* scroll reveal */
