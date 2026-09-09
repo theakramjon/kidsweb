@@ -124,7 +124,18 @@ a{text-decoration:none;color:inherit}
 	position:relative;z-index:2;
 	min-height:100svh;display:flex;flex-direction:column;
 	align-items:center;justify-content:center;text-align:center;
-	padding:150px 28px 110px;
+	padding:150px 28px clamp(150px,26vh,240px);
+}
+/* KidsTaxi illustration, anchored bottom-right and masked into the paper */
+.hero::before{
+	content:"";position:absolute;z-index:-1;
+	right:0;bottom:0;
+	width:min(880px,64%);aspect-ratio:1514/1039;
+	background:url("../images/bg_test.png") no-repeat right bottom/contain;
+	-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%),linear-gradient(to right,transparent,#000 26%);
+	mask-image:linear-gradient(to bottom,transparent,#000 30%),linear-gradient(to right,transparent,#000 26%);
+	-webkit-mask-composite:source-in;mask-composite:intersect;
+	pointer-events:none;
 }
 .title{
 	font-family:'Inter Tight',Inter,sans-serif;
@@ -646,6 +657,7 @@ a{text-decoration:none;color:inherit}
 	.ap-title{max-width:20ch}
 	.au-grid{grid-template-columns:1fr}
 	.panel-title{min-height:0}
+	.hero::before{width:min(560px,104%);right:50%;transform:translateX(50%)}
 	.au-title{max-width:20ch}
 	.dr-figure{aspect-ratio:2.1/1}
 	.dr-figure img{object-position:58% 50%}
@@ -654,7 +666,7 @@ a{text-decoration:none;color:inherit}
 }
 @media (max-width:520px){
 	.nav{padding:8px 8px 8px 16px}
-	.hero{padding:132px 22px 90px}
+	.hero{padding:132px 22px 34vh}
 	.title{letter-spacing:-.04em}
 	.lede{margin-top:26px}
 }
