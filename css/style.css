@@ -141,7 +141,7 @@ a{text-decoration:none;color:inherit}
 	font-family:'Inter Tight',Inter,sans-serif;
 	margin:0;
 	font-weight:500;
-	font-size:clamp(3.1rem,9.2vw,7.6rem);
+	font-size: clamp(2.9rem, 8.7vw, 7.2rem);
 	line-height:.94;
 	letter-spacing:-.05em;
 	max-width:15ch;
