@@ -30,6 +30,8 @@ body{
 	overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit}
+/* the header floats over content, so anchor jumps need clearance */
+section{scroll-margin-top:clamp(84px,10vh,104px)}
 
 /* ── Paper ────────────────────────────────────────────── */
 .stage{position:relative;min-height:100svh;isolation:isolate;overflow:hidden}
@@ -628,10 +630,84 @@ a{text-decoration:none;color:inherit}
 .panel--b2b .panel-list p{color:rgba(255,255,255,.56)}
 .panel--b2c .panel-list p{color:var(--ink-60)}
 
+/* ── Yechim (yellow slide) ────────────────────────────── */
+.solution{
+	--sol-yellow:#ffd214;
+	--sol-cream:#faf7f0;
+	--sol-num:#c07f10;
+	--sol-blue:#1740d4;
+	--sol-ink:#141310;
+	--sol-body:#4b4740;
+	position:relative;z-index:2;
+	background:var(--sol-yellow);color:var(--sol-ink);
+	padding:clamp(60px,7vw,92px) 0 clamp(72px,8vw,104px);
+}
+.sol-wrap{width:min(1520px,100%);margin:0 auto;padding-inline:clamp(20px,2.6vw,36px)}
+.sol-top{
+	display:flex;align-items:center;justify-content:space-between;gap:20px;
+	margin-bottom:clamp(26px,3.2vw,42px);
+}
+.sol-brand{
+	font-family:'Inter Tight',Inter,sans-serif;
+	font-weight:700;font-size:clamp(1rem,1.4vw,1.18rem);letter-spacing:-.032em;
+	color:var(--sol-blue);
+}
+.sol-place{
+	font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+	color:var(--sol-blue);
+}
+.sol-eyebrow{
+	display:block;margin-bottom:clamp(18px,2.2vw,30px);
+	font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+	color:rgba(20,19,16,.7);
+}
+.sol-title{
+	font-family:'Inter Tight',Inter,sans-serif;
+	margin:0;max-width:16ch;
+	font-weight:700;
+	font-size:clamp(3.2rem,7vw,6.4rem);
+	line-height:.94;letter-spacing:-.05em;
+}
+.sol-grid{
+	display:grid;grid-template-columns:repeat(4,1fr);
+	gap:clamp(16px,2vw,30px);
+	margin-top:clamp(52px,6.4vw,96px);
+}
+.sol-card{
+	background:var(--sol-cream);
+	border-radius:clamp(22px,2.6vw,36px);
+	padding:clamp(28px,3.2vw,46px);
+	display:flex;flex-direction:column;
+}
+.sol-num{
+	font-family:'Inter Tight',Inter,sans-serif;
+	margin-bottom:clamp(22px,2.9vw,38px);
+	font-weight:700;font-size:clamp(3rem,3.9vw,3.8rem);
+	line-height:1;letter-spacing:-.04em;
+	font-variant-numeric:tabular-nums;
+	color:var(--sol-num);
+}
+.sol-card h3{
+	font-family:'Inter Tight',Inter,sans-serif;
+	margin:0 0 15px;font-weight:700;
+	font-size:clamp(1.5rem,2.1vw,1.9rem);
+	line-height:1.14;letter-spacing:-.032em;
+	text-wrap:balance;
+}
+.sol-card p{
+	margin:0;
+	font-size:clamp(1.1rem,1.35vw,1.22rem);
+	line-height:1.5;letter-spacing:-.006em;
+	color:var(--sol-body);
+}
+
 /* scroll reveal */
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
 
+@media (max-width:1200px){
+	.sol-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media (max-width:900px){
 	.links,.ghost{display:none}
 	.burger{display:grid}
@@ -666,6 +742,8 @@ a{text-decoration:none;color:inherit}
 }
 @media (max-width:520px){
 	.nav{padding:8px 8px 8px 16px}
+	.sol-grid{grid-template-columns:1fr}
+	.sol-title{max-width:20ch}
 	.hero{padding:132px 22px 34vh}
 	.title{letter-spacing:-.04em}
 	.lede{margin-top:26px}

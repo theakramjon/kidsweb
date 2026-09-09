@@ -8,7 +8,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<script>document.documentElement.classList.add('js')</script>
-	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
 
 			<div class="links">
 				<a href="#ustunliklar">Ustunliklar</a>
-				<a href="#how">Qanday ishlaydi</a>
+				<a href="#yechim">Yechim</a>
 				<a href="#safety">Xavfsizlik</a>
 				<a href="#drivers">Haydovchilar</a>
 				<a href="#ilova">Ilova</a>
@@ -61,70 +61,34 @@
 		</main>
 	</div>
 
-	<!-- Highlights -->
-	<section style="background: #ffd214;" class="highlights" id="highlights">
-		<div class="hl-head">
-			<h2 class="hl-title">Kichik o‘zgarish. Katta qulaylik.</h2>
-			<div class="hl-controls">
-				<button class="hl-btn" type="button" data-dir="-1" aria-label="Oldingi" aria-controls="hlTrack">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
-				</button>
-				<button class="hl-btn" type="button" data-dir="1" aria-label="Keyingi" aria-controls="hlTrack">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-				</button>
+	<!-- Yechim -->
+	<section class="solution" id="yechim">
+		<div class="sol-wrap">
+			<span class="sol-eyebrow reveal">02 — Yechim</span>
+			<h2 class="sol-title reveal">Kichik o‘zgarish.<br>Katta qulaylik.</h2>
+
+			<div class="sol-grid">
+				<article class="sol-card reveal">
+					<span class="sol-num">01</span>
+					<h3>Sifatli xizmat ko'rsatish</h3>
+					<p>Bog'cha xizmatlari ro'yxatiga tayyor transport qo'shiladi — yangi xodim, mashina yoki qo'shimcha xarajatsiz.</p>
+				</article>
+				<article class="sol-card reveal">
+					<span class="sol-num">02</span>
+					<h3>Bolalar xavfsizligi</h3>
+					<p>Tekshirilgan haydovchi, yoshiga mos o'rindiq, bog'langan kamar. Bola faqat tasdiqlangan shaxsga topshiriladi.</p>
+				</article>
+				<article class="sol-card reveal">
+					<span class="sol-num">03</span>
+					<h3>Ota-ona ishonchi</h3>
+					<p>Ota-ona jarayonni o'z telefonida ko'radi. Shaffoflik bog'chaga bo'lgan ishonchni kuchaytiradi.</p>
+				</article>
+				<article class="sol-card reveal">
+					<span class="sol-num">04</span>
+					<h3>Rejali kutib olish va kuzatish</h3>
+					<p>Guruhlar bo'yicha aniq vaqtli jadval: kim olib kelindi, kim olib ketildi — hammasi yozib boriladi.</p>
+				</article>
 			</div>
-		</div>
-
-		<div class="hl-track" id="hlTrack" role="region" aria-label="Asosiy imkoniyatlar" tabindex="0">
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M100 16l44 17v33c0 30-19 51-44 60-25-9-44-30-44-60V33z"/>
-						<path d="M84 74l11 12 24-26"/>
-						<path class="dash" d="M18 132h164"/>
-					</svg>
-				</div>
-				<p class="card-text">Sifatli xizmat ko'rsatatish.</p>
-			</article>
-
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="34" y="26" width="132" height="102" rx="14"/>
-						<path d="M34 56h132M68 18v18M132 18v18"/>
-						<circle cx="68" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="100" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="132" cy="80" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="68" cy="106" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="100" cy="106" r="4.4" fill="currentColor" stroke="none"/>
-						<circle cx="132" cy="106" r="8.6" class="ping"/>
-					</svg>
-				</div>
-				<p class="card-text">Bolalar xavfsizligi.</p>
-			</article>
-			
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M100 16l44 17v33c0 30-19 51-44 60-25-9-44-30-44-60V33z"/>
-						<path d="M84 74l11 12 24-26"/>
-						<path class="dash" d="M18 132h164"/>
-					</svg>
-				</div>
-				<p class="card-text">Ota-ona ishonchi.</p>
-			</article>
-			
-			<article class="card card--paper">
-				<div class="card-figure" aria-hidden="true">
-					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M100 16l44 17v33c0 30-19 51-44 60-25-9-44-30-44-60V33z"/>
-						<path d="M84 74l11 12 24-26"/>
-						<path class="dash" d="M18 132h164"/>
-					</svg>
-				</div>
-				<p class="card-text">Rejali kutib olish va kuzatish.</p>
-			</article>
-
 		</div>
 	</section>
 
