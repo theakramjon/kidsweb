@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KidsTaxi — Premium rides for little passengers</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<style>
+		/* ── Tokens ───────────────────────────────────────────── */
+		:root{
+			--ink:#05060c;
+			--ink-2:#0a0c18;
+			--text:#f4f6ff;
+			--muted:rgba(226,232,255,.62);
+			--gold:#ffc258;
+			--gold-deep:#f0a010;
+			--indigo:#5b7cff;
+			--cyan:#3ee0e0;
+
+			--glass-bg:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.035));
+			--glass-line:rgba(255,255,255,.14);
+			--glass-blur:blur(22px) saturate(190%);
+			--glass-shadow:
+				inset 0 1px 0 rgba(255,255,255,.30),
+				inset 0 -1px 0 rgba(255,255,255,.05),
+				inset 0 0 26px rgba(255,255,255,.045),
+				0 24px 50px -24px rgba(0,0,0,.85);
+			--ease:cubic-bezier(.22,1,.36,1);
+		}
+
+		*,*::before,*::after{box-sizing:border-box}
+		html{-webkit-text-size-adjust:100%}
+		body{
+			margin:0;
+			min-height:100vh;
+			background:var(--ink);
+			color:var(--text);
+			font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+			-webkit-font-smoothing:antialiased;
+			overflow-x:hidden;
+		}
+		a{text-decoration:none;color:inherit}
+
+		/* ── Ambient background ───────────────────────────────── */
+		.stage{position:relative;min-height:100svh;isolation:isolate;overflow:hidden}
+		.stage::after{ /* vignette */
+			content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+			background:radial-gradient(115% 85% at 50% 12%,transparent 42%,rgba(3,4,10,.62) 100%);
+		}
+		.bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+		.bg .base{
+			position:absolute;inset:0;
+			background:
+				radial-gradient(75% 55% at 50% 34%,#182046 0%,transparent 66%),
+				radial-gradient(95% 60% at 50% -12%,#161d40 0%,transparent 62%),
+				linear-gradient(180deg,var(--ink-2) 0%,var(--ink) 72%);
+		}
+		.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.62;will-change:transform}
+		.orb--gold{width:40vw;height:40vw;min-width:360px;min-height:360px;left:-11%;top:22%;opacity:.5;
+			background:radial-gradient(circle at 55% 45%,rgba(255,194,88,.78),rgba(240,160,16,.16) 50%,transparent 68%);
+			animation:drift1 22s var(--ease) infinite alternate}
+		.orb--indigo{width:54vw;height:54vw;min-width:440px;min-height:440px;right:-10%;top:2%;
+			background:radial-gradient(circle at 60% 40%,rgba(91,124,255,.72),rgba(91,124,255,.18) 55%,transparent 72%);
+			animation:drift2 26s var(--ease) infinite alternate}
+		.orb--cyan{width:42vw;height:42vw;min-width:340px;min-height:340px;left:32%;top:46%;opacity:.38;
+			background:radial-gradient(circle at 50% 50%,rgba(62,224,224,.55),transparent 70%);
+			animation:drift3 30s var(--ease) infinite alternate}
+		@keyframes drift1{to{transform:translate3d(6vw,7vh,0) scale(1.12)}}
+		@keyframes drift2{to{transform:translate3d(-7vw,9vh,0) scale(1.08)}}
+		@keyframes drift3{to{transform:translate3d(4vw,-8vh,0) scale(1.15)}}
+
+		.grid-lines{
+			position:absolute;inset:0;opacity:.16;
+			background-image:
+				linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+				linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+			background-size:88px 88px;
+			-webkit-mask-image:radial-gradient(80% 55% at 50% 32%,#000 0%,transparent 78%);
+			mask-image:radial-gradient(80% 55% at 50% 32%,#000 0%,transparent 78%);
+		}
+		.noise{
+			position:absolute;inset:0;opacity:.16;mix-blend-mode:overlay;
+			background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+		}
+		/* cursor-tracked specular light */
+		.spot{
+			position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;
+			background:radial-gradient(420px circle at var(--mx,50%) var(--my,18%),rgba(255,255,255,.10),transparent 62%);
+			transition:opacity .6s ease;
+		}
+
+		/* ── Liquid glass primitive ───────────────────────────── */
+		.glass{
+			position:relative;
+			background:var(--glass-bg);
+			backdrop-filter:var(--glass-blur);
+			-webkit-backdrop-filter:var(--glass-blur);
+			border:1px solid var(--glass-line);
+			box-shadow:var(--glass-shadow);
+			overflow:hidden;
+		}
+		.glass::before{ /* top specular sheen */
+			content:"";position:absolute;left:0;right:0;top:0;height:52%;
+			background:linear-gradient(180deg,rgba(255,255,255,.20),transparent);
+			pointer-events:none;
+		}
+		.glass::after{ /* travelling light streak */
+			content:"";position:absolute;top:-60%;bottom:-60%;width:36%;left:-45%;
+			background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);
+			transform:skewX(-18deg);pointer-events:none;
+			animation:sweep 9s var(--ease) infinite;
+		}
+		@keyframes sweep{0%,62%{left:-45%}92%,100%{left:120%}}
+
+		/* ── Header ───────────────────────────────────────────── */
+		.header{position:fixed;inset:14px 0 auto;z-index:50;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
+		.nav{
+			pointer-events:auto;
+			width:min(1120px,100%);
+			display:flex;align-items:center;gap:18px;
+			padding:10px 10px 10px 18px;
+			border-radius:999px;
+			transition:padding .5s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease),background .5s var(--ease);
+		}
+		.header.is-scrolled .nav{
+			width:min(980px,100%);
+			padding:7px 7px 7px 15px;
+			box-shadow:var(--glass-shadow),0 8px 30px -12px rgba(91,124,255,.35);
+		}
+		.brand{display:flex;align-items:center;gap:11px;position:relative;z-index:1;margin-right:auto}
+		.mark{
+			width:38px;height:38px;border-radius:13px;display:grid;place-items:center;flex:none;
+			background:linear-gradient(150deg,var(--gold),var(--gold-deep));
+			box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 8px 20px -8px rgba(240,160,16,.85);
+		}
+		.mark svg{width:20px;height:20px;color:#1a1200}
+		.brand-name{font-weight:600;font-size:17px;letter-spacing:-.02em}
+		.brand-name span{color:var(--gold)}
+
+		.links{display:flex;align-items:center;gap:4px;position:relative;z-index:1}
+		.links a{
+			position:relative;padding:9px 15px;border-radius:999px;
+			font-size:14px;font-weight:500;color:var(--muted);
+			transition:color .3s var(--ease),background .3s var(--ease);
+		}
+		.links a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+
+		.actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}
+		.ghost{
+			padding:10px 16px;border-radius:999px;font-size:14px;font-weight:500;color:var(--muted);
+			border:1px solid transparent;transition:.3s var(--ease);
+		}
+		.ghost:hover{color:var(--text);border-color:var(--glass-line);background:rgba(255,255,255,.06)}
+		.cta{
+			position:relative;overflow:hidden;
+			padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;color:#1a1200;
+			background:linear-gradient(150deg,#ffd88a,var(--gold) 42%,var(--gold-deep));
+			box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 10px 26px -10px rgba(240,160,16,.9);
+			transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+		}
+		.cta:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 16px 34px -12px rgba(240,160,16,1)}
+		.cta::after{
+			content:"";position:absolute;top:-50%;bottom:-50%;width:40%;left:-50%;
+			background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+			transform:skewX(-18deg);animation:sweep 6s var(--ease) infinite;
+		}
+		.burger{display:none;width:40px;height:40px;border-radius:999px;place-items:center;
+			border:1px solid var(--glass-line);background:rgba(255,255,255,.06);position:relative;z-index:1}
+		.burger span{display:block;width:16px;height:1.5px;background:var(--text);border-radius:2px;box-shadow:0 -5px 0 var(--text),0 5px 0 var(--text)}
+
+		/* ── Hero ─────────────────────────────────────────────── */
+		.hero{
+			position:relative;z-index:3;
+			min-height:100svh;display:flex;flex-direction:column;
+			align-items:center;justify-content:center;text-align:center;
+			padding:140px 24px 90px;
+		}
+		.eyebrow{
+			display:inline-flex;align-items:center;gap:9px;
+			padding:8px 16px 8px 10px;border-radius:999px;
+			font-size:13px;font-weight:500;color:rgba(236,240,255,.85);letter-spacing:.01em;
+		}
+		.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);
+			box-shadow:0 0 0 4px rgba(62,224,224,.18),0 0 14px rgba(62,224,224,.9);
+			animation:pulse 2.4s ease-in-out infinite}
+		@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(62,224,224,0),0 0 14px rgba(62,224,224,.6)}}
+		.eyebrow b{font-weight:600;color:#fff}
+
+		.title{
+			margin:30px 0 0;
+			font-weight:600;
+			font-size:clamp(2.9rem,8.4vw,6.6rem);
+			line-height:.98;
+			letter-spacing:-.045em;
+			max-width:16ch;
+			background:linear-gradient(180deg,#ffffff 8%,#cfd6f5 55%,rgba(190,199,235,.72) 100%);
+			-webkit-background-clip:text;background-clip:text;color:transparent;
+			text-wrap:balance;
+		}
+		.title .accent{
+			font-family:'Instrument Serif',ui-serif,Georgia,serif;
+			font-style:italic;font-weight:400;letter-spacing:-.01em;
+			background:linear-gradient(120deg,#ffe6b0,var(--gold) 45%,var(--gold-deep));
+			-webkit-background-clip:text;background-clip:text;color:transparent;
+			padding-right:.06em;
+		}
+		.lede{
+			margin:26px 0 0;
+			max-width:52ch;
+			font-size:clamp(1rem,1.55vw,1.14rem);
+			line-height:1.65;
+			color:var(--muted);
+			text-wrap:pretty;
+		}
+
+		/* entrance */
+		.rise{opacity:0;transform:translateY(22px) scale(.985);filter:blur(8px);
+			animation:rise 1.1s var(--ease) forwards}
+		.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.46s}
+		@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+
+		@media (max-width:900px){
+			.links{display:none}
+			.ghost{display:none}
+			.burger{display:grid}
+		}
+		@media (max-width:520px){
+			.nav{padding:8px 8px 8px 14px}
+			.cta{padding:10px 16px}
+			.hero{padding:130px 20px 80px}
+		}
+		@media (prefers-reduced-motion:reduce){
+			*,*::before,*::after{animation:none!important;transition:none!important}
+			.rise{opacity:1;transform:none;filter:none}
+		}
+	</style>
+</head>
+<body>
+	<div class="stage">
+		<div class="bg" aria-hidden="true">
+			<div class="base"></div>
+			<div class="orb orb--gold"></div>
+			<div class="orb orb--indigo"></div>
+			<div class="orb orb--cyan"></div>
+			<div class="grid-lines"></div>
+			<div class="noise"></div>
+		</div>
+		<div class="spot" aria-hidden="true"></div>
+
+		<!-- Header -->
+		<header class="header" id="header">
+			<nav class="nav glass">
+				<a class="brand" href="#" aria-label="KidsTaxi home">
+					<span class="mark" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M5 17h14M4 17v-4.2a2 2 0 0 1 .2-.9l1.9-3.8A2 2 0 0 1 7.9 7h8.2a2 2 0 0 1 1.8 1.1l1.9 3.8a2 2 0 0 1 .2.9V17"/>
+							<path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/>
+							<circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/>
+						</svg>
+					</span>
+					<span class="brand-name">Kids<span>Taxi</span></span>
+				</a>
+
+				<div class="links">
+					<a href="#how">How it works</a>
+					<a href="#safety">Safety</a>
+					<a href="#drivers">Drivers</a>
+					<a href="#pricing">Pricing</a>
+				</div>
+
+				<div class="actions">
+					<a class="ghost" href="#signin">Sign in</a>
+					<a class="cta" href="#book">Book a ride</a>
+					<button class="burger" type="button" aria-label="Open menu"><span></span></button>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Hero -->
+		<main class="hero">
+			<div class="eyebrow glass rise d1">
+				<span class="dot" aria-hidden="true"></span>
+				Trusted by <b>12,400+</b> families
+			</div>
+
+			<h1 class="title rise d2">
+				Every ride home,<br><span class="accent">safely</span> delivered.
+			</h1>
+
+			<p class="lede rise d3">
+				Vetted drivers, live tracking and a parent who always knows exactly where their child is — the calm, premium way to move little passengers around the city.
+			</p>
+		</main>
+	</div>
+
+	<script>
+		// Header condenses on scroll
+		const header = document.getElementById('header');
+		const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+		onScroll();
+		addEventListener('scroll', onScroll, {passive:true});
+
+		// Specular highlight follows the cursor
+		const spot = document.querySelector('.spot');
+		addEventListener('pointermove', e => {
+			spot.style.setProperty('--mx', e.clientX + 'px');
+			spot.style.setProperty('--my', e.clientY + 'px');
+		}, {passive:true});
+	</script>
+</body>
+</html>

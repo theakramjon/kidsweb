@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KidsTaxi — Premium rides for little passengers</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<script>document.documentElement.classList.add('js')</script>
+	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- Header -->
+	<header class="header" id="header">
+		<nav class="nav">
+			<a class="brand" href="#" aria-label="KidsTaxi home">
+				<span class="mark" aria-hidden="true">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M5 17h14M4 17v-4.2a2 2 0 0 1 .2-.9l1.9-3.8A2 2 0 0 1 7.9 7h8.2a2 2 0 0 1 1.8 1.1l1.9 3.8a2 2 0 0 1 .2.9V17"/>
+						<path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/>
+						<circle cx="7.5" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/>
+					</svg>
+				</span>
+				<span class="brand-name">KidsTaxi</span>
+			</a>
+
+			<div class="links">
+				<a href="#how">How it works</a>
+				<a href="#safety">Safety</a>
+				<a href="#drivers">Drivers</a>
+				<a href="#pricing">Pricing</a>
+			</div>
+
+			<div class="actions">
+				<a class="ghost" href="#signin">Sign in</a>
+				<a class="cta" href="#book">Book a ride</a>
+				<button class="burger" type="button" aria-label="Open menu"><span></span></button>
+			</div>
+		</nav>
+	</header>
+
+	<div class="stage">
+		<div class="paper" aria-hidden="true">
+			<div class="wash"></div>
+			<div class="veil"></div>
+			<div class="halo"></div>
+			<div class="grain"></div>
+		</div>
+
+		<!-- Hero -->
+		<!--<main class="hero">
+			<h1 class="title rise d1">
+				Every ride home,<br><span class="soft">safely delivered.</span>
+			</h1>
+			<p class="lede rise d2">
+				Vetted drivers, live tracking and a parent who always knows exactly where their child is.
+			</p>
+		</main>-->
+		<main class="hero">
+			<h1 class="title rise d1">
+				<!--Transport bu<br><span class="soft">sizning ustunligingiz.</span>-->
+				Every ride home,<br><span class="soft">safely delivered.</span>
+			</h1>
+			<p class="lede rise d2">
+				Vetted drivers, live tracking and a parent who always knows exactly where their child is.
+			</p>
+		</main>
+	</div>
+
+	<!-- Highlights -->
+	<section class="highlights" id="highlights" lang="uz">
+		<div class="hl-head">
+			<h2 class="hl-title">Farzandingiz uchun xavfsiz yo'l. Har kuni.</h2>
+			<div class="hl-controls">
+				<button class="hl-btn" type="button" data-dir="-1" aria-label="Oldingi" aria-controls="hlTrack">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+				</button>
+				<button class="hl-btn" type="button" data-dir="1" aria-label="Keyingi" aria-controls="hlTrack">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+				</button>
+			</div>
+		</div>
+
+		<div class="hl-track" id="hlTrack" role="region" aria-label="Asosiy imkoniyatlar" tabindex="0">
+
+			<article class="card card--ink">
+				<div class="card-figure" aria-hidden="true">
+					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+						<path class="dash" d="M24 122c34 0 22-46 56-46s26-48 62-48"/>
+						<circle cx="24" cy="122" r="5" fill="currentColor" stroke="none"/>
+						<path d="M142 15c9.4 0 17 7.6 17 17 0 12.8-17 26-17 26s-17-13.2-17-26c0-9.4 7.6-17 17-17z"/>
+						<circle cx="142" cy="32" r="5.4"/>
+					</svg>
+				</div>
+				<p class="card-text">Bog'chaga xavfsiz yo'l — ishonch bilan.</p>
+			</article>
+
+			<article class="card card--paper">
+				<div class="card-figure" aria-hidden="true">
+					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="34" y="26" width="132" height="102" rx="14"/>
+						<path d="M34 56h132M68 18v18M132 18v18"/>
+						<circle cx="68" cy="80" r="4.4" fill="currentColor" stroke="none"/>
+						<circle cx="100" cy="80" r="4.4" fill="currentColor" stroke="none"/>
+						<circle cx="132" cy="80" r="4.4" fill="currentColor" stroke="none"/>
+						<circle cx="68" cy="106" r="4.4" fill="currentColor" stroke="none"/>
+						<circle cx="100" cy="106" r="4.4" fill="currentColor" stroke="none"/>
+						<circle cx="132" cy="106" r="8.6" class="ping"/>
+					</svg>
+				</div>
+				<p class="card-text">Har kuni bir xil ishonch bilan.</p>
+			</article>
+
+			<article class="card card--mist">
+				<div class="card-figure" aria-hidden="true">
+					<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M100 16l44 17v33c0 30-19 51-44 60-25-9-44-30-44-60V33z"/>
+						<path d="M84 74l11 12 24-26"/>
+						<path class="dash" d="M18 132h164"/>
+					</svg>
+				</div>
+				<p class="card-text">Xavfsiz transport. Jonli kuzatuv. Xotirjam ota-ona.</p>
+			</article>
+
+		</div>
+	</section>
+
+	<!-- Process -->
+	<section class="process" id="how" lang="uz">
+		<div class="pr-wrap">
+			<h2 class="pr-title reveal">Uch qadam, cheksiz xotirjamlik.</h2>
+			<p class="pr-lede reveal">Bir marta sozlaysiz, qolganini biz bajaramiz. Har kuni, bir xil tartibda.</p>
+
+			<div class="steps">
+				<div class="step reveal">
+					<span class="step-num">01</span>
+					<h3 class="step-title">Marshrutni belgilang</h3>
+					<p class="step-text">Manzil, vaqt va kunlarni bir marta kiritasiz — jadval o'zi takrorlanadi.</p>
+				</div>
+				<div class="step reveal">
+					<span class="step-num">02</span>
+					<h3 class="step-title">Haydovchi biriktiriladi</h3>
+					<p class="step-text">Ko'p bosqichli tekshiruvdan o'tgan doimiy haydovchi. Har kuni bir xil tanish yuz.</p>
+				</div>
+				<div class="step reveal">
+					<span class="step-num">03</span>
+					<h3 class="step-title">Jonli kuzatib boring</h3>
+					<p class="step-text">Yo'lga chiqqanidan yetib borgunicha — xaritada va bildirishnomalarda.</p>
+				</div>
+			</div>
+
+			<div class="stats">
+				<div class="stat reveal">
+					<span class="stat-num">12&nbsp;400+</span>
+					<span class="stat-label">Bizga ishongan oila</span>
+				</div>
+				<div class="stat reveal">
+					<span class="stat-num">99,8%</span>
+					<span class="stat-label">O'z vaqtida yetib borish</span>
+				</div>
+				<div class="stat reveal">
+					<span class="stat-num">24/7</span>
+					<span class="stat-label">Qo'llab-quvvatlash xizmati</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Safety -->
+	<section class="safety" id="safety" lang="uz">
+		<div class="sf-wrap">
+			<aside class="sf-aside">
+				<span class="sf-label reveal">Xavfsizlik</span>
+				<h2 class="sf-title reveal">Ishonch tasodif emas. U — tizim.</h2>
+				<p class="sf-lede reveal">Har bir qatnov ortida tekshiruv, jonli nazorat va aniq javobgarlik turadi.</p>
+			</aside>
+
+			<div class="sf-list">
+				<div class="sf-item reveal">
+					<span class="sf-ico" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M12 3l7 2.6v5.1c0 4.6-2.9 7.8-7 9.3-4.1-1.5-7-4.7-7-9.3V5.6z"/>
+							<path d="M8.8 11.7l2.2 2.3 4.2-4.4"/>
+						</svg>
+					</span>
+					<div>
+						<h3>Ko'p bosqichli tekshiruv</h3>
+						<p>Haydovchilarning hujjatlari, haydovchilik tajribasi, tibbiy ko'rigi va sudlanganlik holati tekshiriladi — ishga qabul qilishdan oldin va keyin ham davriy ravishda.</p>
+					</div>
+				</div>
+
+				<div class="sf-item reveal">
+					<span class="sf-ico" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="6.2" r="2.5"/>
+							<path d="M8.3 20.4v-5.5A3.7 3.7 0 0 1 12 11.2a3.7 3.7 0 0 1 3.7 3.7v5.5"/>
+							<path d="M9.1 12.7l6 5.6"/>
+						</svg>
+					</span>
+					<div>
+						<h3>Yoshiga mos o'rindiq</h3>
+						<p>Bo'yi va yoshiga mos bola o'rindig'i har bir mashinada. Kamar bog'lanmaguncha mashina joyidan jilmaydi.</p>
+					</div>
+				</div>
+
+				<div class="sf-item reveal">
+					<span class="sf-ico" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="2.4"/>
+							<path d="M7.9 7.9a5.8 5.8 0 0 0 0 8.2M16.1 16.1a5.8 5.8 0 0 0 0-8.2"/>
+							<path d="M5 5a9.9 9.9 0 0 0 0 14M19 19a9.9 9.9 0 0 0 0-14"/>
+						</svg>
+					</span>
+					<div>
+						<h3>Jonli kuzatuv va xabar</h3>
+						<p>Yo'lga chiqdi, yo'lda, yetib bordi — har bir bosqichda telefoningizga bildirishnoma keladi. Xaritada esa mashina real vaqtda ko'rinadi.</p>
+					</div>
+				</div>
+
+				<div class="sf-item reveal">
+					<span class="sf-ico" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M4.2 13.2V12a7.8 7.8 0 0 1 15.6 0v1.2"/>
+							<rect x="2.4" y="13" width="4.4" height="6.6" rx="2.2"/>
+							<rect x="17.2" y="13" width="4.4" height="6.6" rx="2.2"/>
+						</svg>
+					</span>
+					<div>
+						<h3>24/7 nazorat markazi</h3>
+						<p>Har bir qatnov operatorlar nazoratida. Kutilmagan holat bo'lsa — siz qo'ng'iroq qilishingizdan oldin biz aloqaga chiqamiz.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Drivers -->
+	<section class="drivers" id="drivers" lang="uz">
+		<div class="dr-wrap">
+			<span class="dr-label reveal">Haydovchilar</span>
+			<h2 class="dr-title reveal">Har kuni bir xil tanish yuz.</h2>
+			<p class="dr-lede reveal">Bolaga doimiy haydovchi biriktiriladi — har safar notanish odam emas. Bir xil mashina, bir xil salom, bir xil yo'l.</p>
+
+			<span class="dr-caption reveal">Kundalik jadval — namuna</span>
+
+			<div class="dr-rail">
+				<div class="dr-slot reveal">
+					<span class="dr-time">08:00</span>
+					<h3>Uydan olib ketish</h3>
+					<p>Haydovchi belgilangan vaqtda eshik oldida. Bola mashinaga o'tirgach, ilovaga xabar keladi.</p>
+				</div>
+				<div class="dr-slot reveal">
+					<span class="dr-time">08:20</span>
+					<h3>Bog'chaga topshirish</h3>
+					<p>Bola faqat oldindan tasdiqlangan tarbiyachiga topshiriladi — va siz buni xabarnomada ko'rasiz.</p>
+				</div>
+				<div class="dr-slot reveal">
+					<span class="dr-time">17:00</span>
+					<h3>Uyga qaytish</h3>
+					<p>Kechki qatnov ham xuddi shu haydovchi bilan. Bola faqat sizga yoki siz tasdiqlagan shaxsga topshiriladi.</p>
+				</div>
+			</div>
+
+			<div class="dr-foot reveal">
+				<p class="dr-note">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<circle cx="12" cy="12" r="8.6"/>
+						<path d="M12 11.2v5.2"/>
+						<path d="M12 7.9h.01"/>
+					</svg>
+					Haydovchi almashishi kerak bo'lsa, qatnovdan oldin xabar beramiz va yangi haydovchining ma'lumotlarini yuboramiz. Vaqtlar har bir marshrut uchun alohida kelishiladi.
+				</p>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Invite / pilot -->
+	<section class="invite" id="pricing" lang="uz">
+		<div class="inv-wrap">
+			<span class="inv-label reveal">Pilot bosqichi</span>
+			<h2 class="inv-title reveal">Keling, pilotni birga sinab ko'ramiz.</h2>
+			<p class="inv-lede reveal">Hozir xizmat 1&ndash;2 ta bog'cha va cheklangan sonli bolalar bilan boshlanadi. Narx marshrut va masofaga qarab individual belgilanadi&nbsp;— shuning uchun birinchi qadam qisqa uchrashuv.</p>
+
+			<div class="inv-actions reveal">
+				<a class="btn-light" href="#book">Bog'cha uchun uchrashuv</a>
+				<a class="btn-outline" href="#signin">Ota-ona sifatida qiziqaman</a>
+			</div>
+
+			<p class="inv-note reveal">Uchrashuvda bog'cha va hudud uchun pilot modelni birgalikda muhokama qilamiz.</p>
+		</div>
+	</section>
+
+	<script src="index.js"></script>
+</body>
+</html>
