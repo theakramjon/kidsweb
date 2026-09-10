@@ -6,6 +6,37 @@
 	const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 	const smooth = reduced ? 'auto' : 'smooth';
 
+	// Mobile menu
+	const burger = document.querySelector('.burger');
+	const menu = document.getElementById('menu');
+	if (burger && menu) {
+		const setMenu = (open) => {
+			menu.classList.toggle('is-open', open);
+			burger.setAttribute('aria-expanded', String(open));
+			burger.setAttribute('aria-label', open ? 'Menyuni yopish' : 'Menyuni ochish');
+		};
+		const isOpen = () => menu.classList.contains('is-open');
+
+		burger.addEventListener('click', (e) => {
+			e.stopPropagation();
+			setMenu(!isOpen());
+		});
+		// a tap on a link navigates, then closes
+		menu.addEventListener('click', (e) => {
+			if (e.target.closest('a')) setMenu(false);
+		});
+		document.addEventListener('click', (e) => {
+			if (isOpen() && !menu.contains(e.target) && !burger.contains(e.target)) setMenu(false);
+		});
+		addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && isOpen()) { setMenu(false); burger.focus(); }
+		});
+		// never leave it open when the desktop nav comes back
+		matchMedia('(min-width:901px)').addEventListener('change', (e) => {
+			if (e.matches) setMenu(false);
+		});
+	}
+
 	// Horizontal rails: highlight cards + app screens
 	const initRail = (track, btns) => {
 		if (!track || btns.length < 2) return;
