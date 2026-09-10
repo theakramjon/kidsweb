@@ -22,3 +22,9 @@ Kim uchun?
 
 Hozirgi bosqich
 Loyiha to'liq narx tuzilmasidan oldin pilot bosqichida: 1–2 ta bog'cha va cheklangan sonli bolalar bilan sinovdan boshlanadi. Narx marshrut va masofaga qarab individual belgilanadi; pilot natijalari asosida keyingi tijoriy taklif tayyorlanadi. Keyingi qadam — bog'cha va hudud uchun pilot modelni birgalikda muhokama qiladigan qisqa uchrashuv.
+
+
+
+<!-- section after parent section -->
+
+Siz bilan exclusive kelishuv — qolgan barcha ishlarni biz o‘z zimmamizga olamiz

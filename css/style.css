@@ -180,7 +180,7 @@ section{scroll-margin-top:clamp(84px,10vh,104px)}
 	font-size: clamp(2.9rem, 8.7vw, 7.2rem);
 	line-height:.94;
 	letter-spacing:-.05em;
-	max-width:15ch;
+	/* max-width:15ch; */
 	text-wrap:balance;
 }
 .title .soft{color:var(--ink-35)}
