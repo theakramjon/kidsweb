@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "http://kidstaxi.uz/*"
+  to = "https://kidstaxi.uz/:splat"
+  status = 301
+  force = true
