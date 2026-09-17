@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>KidsTaxi — Farzandingiz uchun xavfsiz yo'l</title>
-	<meta name="description" content="KidsTaxi — Namangan shahrida bog'cha yoshidagi bolalar uchun doimiy transport xizmati: tekshirilgan haydovchi, rejali jadval va jonli kuzatuv.">
+	<meta name="description" content="KidsTaxi — Namangan shahrida maktab yoshidagi bolalar uchun doimiy transport xizmati: tekshirilgan haydovchi, rejali jadval va jonli kuzatuv.">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<script>document.documentElement.classList.add('js')</script>
@@ -18,7 +18,10 @@
 	<header class="header" id="header">
 		<nav class="nav">
 			<a class="brand" href="#" aria-label="KidsTaxi — bosh sahifa">
-				<img src="./images/logo1.png" class="w-[170px]" alt="">
+				<!-- this should show on desktop -->
+				<img src="./images/logo.png" class="hidden min-[901px]:block w-[170px]" alt="KidsTaxi">
+				<!-- this should show on mobile -->
+				<img src="./images/logo-icon.jpg" class="block min-[901px]:hidden w-10 h-10 rounded-[12px]" alt="KidsTaxi">
 			</a>
 
 			<div class="links">
@@ -57,12 +60,12 @@
 		</div>
 		<main class="hero">
             <h1 class="title rise d1 text-[#5c5c63] text-center tracking-tight! leading-[2.5]">
-				<span class="highlight">Bog'changiz</span> — endi<br> 
+				<span class="highlight">Maktabingiz</span> — endi<br> 
 				<span class="leading-[1.1]">yangi bosqichda</span>
             </h1>
       		
             <p class="lede rise d2">
-                Bog'changiz uchun tayyor <span class="bg-yellow-500 text-black pl-1">transport xizmati </span>, ota-onalar uchun esa kundalik qulaylik.
+                Maktabingiz uchun tayyor <span class="bg-yellow-500 text-black pl-1">transport xizmati </span>, ota-onalar uchun esa kundalik qulaylik.
             </p>
         </main>
     <style>
@@ -115,7 +118,7 @@
 				<article class="sol-card reveal">
 					<span class="sol-num">01</span>
 					<h3>Sifatli xizmat ko'rsatish</h3>
-					<p>Bog'cha xizmatlari ro'yxatiga tayyor transport qo'shiladi — yangi xodim, mashina yoki qo'shimcha xarajatsiz.</p>
+					<p>Maktab xizmatlari ro'yxatiga tayyor transport qo'shiladi — yangi xodim, mashina yoki qo'shimcha xarajatsiz.</p>
 				</article>
 				<article class="sol-card reveal">
 					<span class="sol-num">02</span>
@@ -125,7 +128,7 @@
 				<article class="sol-card reveal">
 					<span class="sol-num">03</span>
 					<h3>Ota-ona ishonchi</h3>
-					<p>Ota-ona jarayonni o'z telefonida ko'radi. Shaffoflik bog'chaga bo'lgan ishonchni kuchaytiradi.</p>
+					<p>Ota-ona jarayonni o'z telefonida ko'radi. Shaffoflik maktabga bo'lgan ishonchni kuchaytiradi.</p>
 				</article>
 				<article class="sol-card reveal">
 					<span class="sol-num">04</span>
@@ -240,14 +243,14 @@
 		<div class="inv-wrap">
 			<span class="inv-label reveal">Pilot bosqichi</span>
 			<h2 class="inv-title reveal">Keling, pilotni birga sinab ko'ramiz.</h2>
-			<p class="inv-lede reveal">Hozir xizmat 1&ndash;2 ta bog'cha va cheklangan sonli bolalar bilan boshlanadi. Narx marshrut va masofaga qarab individual belgilanadi&nbsp;— shuning uchun birinchi qadam qisqa uchrashuv.</p>
+			<p class="inv-lede reveal">Hozir xizmat 1&ndash;2 ta maktab va cheklangan sonli bolalar bilan boshlanadi. Narx marshrut va masofaga qarab individual belgilanadi&nbsp;— shuning uchun birinchi qadam qisqa uchrashuv.</p>
 
 			<div class="inv-actions reveal">
-				<a class="btn-light" href="#book">Bog'cha uchun uchrashuv</a>
+				<a class="btn-light" href="#book">Maktab uchun uchrashuv</a>
 				<a class="btn-outline" href="#signin">Ota-ona sifatida qiziqaman</a>
 			</div>
 
-			<p class="inv-note reveal">Uchrashuvda bog'cha va hudud uchun pilot modelni birgalikda muhokama qilamiz.</p>
+			<p class="inv-note reveal">Uchrashuvda maktab va hudud uchun pilot modelni birgalikda muhokama qilamiz.</p>
 		</div>
 	</section>
 
